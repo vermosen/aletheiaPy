@@ -11,9 +11,10 @@ import datetime as dt
 
 from pandas.io.data import DataReader
 
-from aletheia import database as db
-from aletheia.recordsets import timeseries, quandl, yahoo
+from aletheiaDb import database as db
+from aletheiaDb.recordsets import timeseries, quandl, yahoo
 
+from test import test
 
 def main():
     
@@ -50,7 +51,7 @@ def recurseMenu(db, errorMessage = None):
     print('5 - rebuild the database')
     print('0 - exit')
 
-    choice = 0    
+    choice = 0
     # try parse
     try:
         choice = int(input(''))
@@ -206,7 +207,7 @@ def refreshYahooDatabase(db):
         except Exception as e:
             print('error processing index ' + str(i['key'] \
                 + '/' + str(i['field']) + '\n'))
-    
+            
 def refreshDatabase(db):
     
     try:
@@ -221,18 +222,6 @@ def refreshDatabase(db):
     
 def readDataset(db):
     print("bla\n")
-
-def test(db):
-    
-    start = dt.datetime(2016, 1, 1)
-    data = DataReader("IBM", 'yahoo', start)
-
-    add = []
-            
-    for index, row in data.iterrows():
-        add.append(("IBM", index, row["Adj Close"]))
-
-    recurseMenu(db)
     
 def rebuildDb(db):
 

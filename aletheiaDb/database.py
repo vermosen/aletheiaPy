@@ -6,8 +6,7 @@ Created on Jul 17, 2016
 
 import psycopg2 as db
 
-from aletheia import designer as ds
-
+from aletheiaDb import designer as ds
 
 class database:
     '''
@@ -15,15 +14,14 @@ class database:
     '''
     
     # members
-    designer_   = ds.designer()
+    designer_ = ds.designer()
 
     def __init__(self, info):
-        
         self.connection_ = db.connect(database  = info['db'         ],
                                       user      = info['user'       ],
                                       password  = info['password'   ],
                                       host      = info['host'       ],
-                                      port      = info['port'       ])    
+                                      port      = info['port'       ])
         
     def __del__(self):
         self.connection_.close()

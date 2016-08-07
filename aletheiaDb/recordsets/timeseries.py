@@ -4,7 +4,7 @@ Created on Jul 19, 2016
 @author: vermosen
 '''
 
-from aletheia.recordset import recordset
+from aletheiaDb.recordset import recordset
 
 from psycopg2.extras import DictCursor
 
